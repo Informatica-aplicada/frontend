@@ -28,7 +28,7 @@ function App() {
       const options = {
         method: "POST",
         withCredentials: false,
-        url: "http://localhost:5400/api/home/report1",
+        url: "https://microservices-gateway.azurewebsites.net/api/home/report1",
         data: years,
       };
 
@@ -46,7 +46,7 @@ function App() {
       const options = {
         method: "POST",
         withCredentials: false,
-        url: "http://localhost:5400/api/home/report2",
+        url: "https://microservices-gateway.azurewebsites.net/api/home/report2",
         data: years,
       };
 
