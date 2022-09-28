@@ -4,7 +4,7 @@ export  function getReport1(years) {
   const options = {
     method: "POST",
     withCredentials: false,
-    url: "http://localhost:5400/api/home/report1",
+    url: "https://informatica-aplicada.github.io/frontend/",
     data: [2014, 2015],
   };
 
