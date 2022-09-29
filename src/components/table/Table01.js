@@ -52,7 +52,7 @@ export function Table01({tr, reports}){
           <tbody>{tr}</tbody>
           <tfoot>
             <tr>
-              <th>#Paginacion</th>
+              <th>#Page</th>
             </tr>
           </tfoot>
         </table>
