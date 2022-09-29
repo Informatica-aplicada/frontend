@@ -22,6 +22,8 @@ function App() {
   };
 
   const boton = () => {
+
+    
     json = JSON.stringify(years);
     if (selectOption === "1") {
       // //crear funcion
@@ -62,6 +64,29 @@ function App() {
         });
     } else {
       console.log("llamar services reporte 3");
+      years.map((rowData) => (
+
+        console.log("lo que viene"+rowData)
+        ));
+
+      const options = {
+        method: "POST",
+        withCredentials: false,
+        url: "https://microservices-gateway.azurewebsites.net/api/home/report3",
+        data: years,
+      };
+
+      return axios
+        .request(options)
+        .then((response) => {
+          setReports(response.data);
+          console.log(reports);
+          return response.data;
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+
     }
     //end promise
   };
@@ -109,7 +134,7 @@ function App() {
                 <h5 className="card-title">Registros de Ventas</h5>
               </div>
               {selectOption === "3" ? (
-                <Table02 tr={tr} reports={reports} />
+                <Table02 tr={tr} reports={reports}  years={years} />
               ) : (
                 <Table01 tr={tr} reports={reports} />
               )}
