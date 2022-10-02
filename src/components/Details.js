@@ -4,7 +4,7 @@ import TableHeader from './table/TableHeader';
 import Navbar from "./page/navbar";
 import '../public/css/table.css';
 
-export function Details() {
+function Details() {
 
   return (
     
@@ -23,3 +23,4 @@ export function Details() {
     </React.Fragment>
   );
 }
+export default Details;
