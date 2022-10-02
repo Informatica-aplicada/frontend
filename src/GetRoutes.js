@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import {HashRouter as Router, Routes, Route} from "react-router-dom";
 
 import Home from './components/Home';
 import Login from './components/Login';
@@ -12,9 +12,10 @@ function GetRoutes(){
       <Router>
         <Routes>
           <Route path="/" element={<Login title="Home"/>} />
-          <Route path="Home" element={<Home />} />
-          <Route path="Reports" element={<App title="Index Page"/>} />
-          <Route path="Details" element={<Details title="Details"/>} />
+          <Route path="home" element={<Home />} />
+          <Route path="login" element={<Login/>} />
+          <Route path="reports" element={<App/>} />
+          <Route path="details" element={<Details/>} />
         </Routes>
       </Router>
     );
