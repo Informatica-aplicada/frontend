@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { getReport1 } from "./services/SalesServices";
+import { getReport1 } from "../services/SalesServices";
 import axios from "axios";
-import Navbar from "./components/page/navbar";
-import CheckBox from "./components/checkbox/Checkbox";
-import CheckBox2 from "./components/checkbox/Checkbox2";
-import { Table01 } from "./components/table/Table01";
-import { Table02 } from "./components/table/Table02";
+import Navbar from "./page/navbar";
+import CheckBox from "./checkbox/Checkbox";
+import CheckBox2 from "./checkbox/Checkbox2";
+import { Table01 } from "./table/Table01";
+import { Table02 } from "./table/Table02";
+import '../index.css';
+
 
 function App() {
   let years = [];
@@ -23,6 +25,7 @@ function App() {
 
   const boton = () => {
     json = JSON.stringify(years);
+    
     if (selectOption === "1") {
       //Create function
       const options = {
@@ -68,7 +71,7 @@ function App() {
 
   return (
     <React.Fragment>
-      <div className="container-fluid">
+      <div className="container-fluid bg-warning">
         <div className="row">
           <Navbar />
         </div>
@@ -86,7 +89,7 @@ function App() {
                     id="inputState"
                     className="form-control"
                   >
-                    <option selected>Choose...</option>
+                    <option defaultValue>Choose...</option>
                     <option value="1">Register 1</option>
                     <option value="2">Register 2</option>
                     <option value="3">Register 3</option>

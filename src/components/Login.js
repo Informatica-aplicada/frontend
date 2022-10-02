@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; 
 import Swal from "sweetalert2";
 
 import { AuthUser } from "../services/Auth";
@@ -37,6 +37,7 @@ function Login() {
   } = useForm();
 
   return (
+    <div class="background-gradient">
     <div className="row col-md-12">
       <div className="col-md-7 col-lg-4 col-sm-8 mx-auto">
         <div className="card card-login">
@@ -81,6 +82,7 @@ function Login() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
