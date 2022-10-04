@@ -7,7 +7,7 @@ function TableDetails() {
             <div class="card mt-3 col-md-8 mx-auto">
                 <div class="card-body">
                     <div className="d-flex">
-                    <h5 class="card-title title-table">Detalles</h5>
+                    <h5 class="card-title title-table">Facturacion</h5>
                         <form class="form-group form-inline ml-3">
                             <div class="input-group">
                                 <input type="text" class=" search-input form-control" placeholder="Buscar..."></input>
