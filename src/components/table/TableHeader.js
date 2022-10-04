@@ -4,43 +4,123 @@ function TableHeader() {
 
     return (
         <React.Fragment>
-            <div class="card">
-                <div class="card-body">
+            <div class="card card mt-3 col-sm-10 col-md-8 col-lg-8 mx-auto">
+                <div class="card-body ">
                     <h5 class="card-title title-table">Facturación</h5>
-                    <table class="table table-sm">
-                        <thead>
-                            <tr>
-                                <th>PurchaseOrderID</th>
-                                <th>RevisionNumber</th>
-                                <th>Status</th>
-                                <th>EmployeeID</th>
-                                <th>VendorID</th>
-                                <th>ShipMethodID</th>
-                                <th>OrderDate</th>
-                                <th>ShipDate</th>
-                                <th>SubTotal</th>
-                                <th>TaxAmt</th>
-                                <th>Freight</th>
-                                <th>TotalDue</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>aaaaaaa</td>
-                                <td>bbbbbbbb</td>
-                                <td>ccccccc</td>
-                                <td>ddddddd</td>
-                                <td>eeeeeeee</td>
-                                <td>ffffff</td>
-                                <td>ggg</td>
-                                <td>hhhh</td>
-                                <td>iiii</td>
-                                <td>jjjjjj</td>
-                                <td>kkkkk</td>
-                                <td>lllll</td>
-                            </tr>
-                        </tbody>
-                    </table>
+
+                    <div className="form-row col-md-6 col-md-12">
+                        {/*-------- form row---------*/}
+                        <div className="form-row col-md-12 col-lg-6">
+
+                            <div className="form-group col-md-4 col-lg-4">
+                                <small> <label class="form-label">OrderID </label>
+                                    <input class="form-control form-control-sm" type="text" placeholder=".PurchaseOrderID">
+                                    </input>
+                                </small>
+                            </div>
+
+                            <div className="form-group  col-md-4 col-lg-4">
+                                <small> <label class="form-label">Rev.Number </label> </small>
+                                <input class="form-control form-control-sm" type="text" placeholder=".RevisionNumber">
+                                </input>
+                            </div>
+
+                            <div className="form-group  col-md-4 col-lg-4">
+                                <small> <label class="form-label">Status </label></small>
+                                <select class="form-control form-control-sm" id="exampleFormControlSelect1">
+                                    <option defaultValue={0} disabled >Choose Status..</option>
+                                    <option value={1} >Pending</option>
+                                    <option value={2} >Approve</option>
+                                    <option value={3} >Rejected</option>
+                                    <option value={4} >Complete</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        {/*-------- end form row---------*/}
+
+                        {/*-------- form row---------*/}
+                        <div className="form-row col-md-12 col-lg-6">
+
+                            <div className="form-group  col-md-4 col-lg-4">
+                                <small> <label class="form-label">EmployeeID </label></small>
+                                <input class="form-control form-control-sm" type="text" placeholder=".EmployeeID">
+                                </input>
+                            </div>
+
+
+
+                            <div className="form-group col-md-4 col-lg-4">
+                                <small> <label class="form-label">VendorID </label></small>
+                                <input class="form-control form-control-sm" type="text" placeholder=".VendorID">
+                                </input>
+                            </div>
+
+                            <div className="form-group col-md-4 col-lg-4">
+                                <small> <label class="form-label">ShipMethodID </label></small>
+                                <input class="form-control form-control-sm" type="text" placeholder=".ShipMethodID">
+                                </input>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    {/*-------- end form row---------*/}
+
+                    <div className="form-row col-md-6 col-md-12">
+
+                        {/*-------- form row---------*/}
+                        <div className="form-row col-md-12 col-lg-6">
+
+                            <div className="form-group col-md-4 col-lg-4">
+                                <small> <label class="form-label">OrderDate </label></small>
+                                <input class="form-control form-control-sm" type="text" placeholder=".OrderDate">
+                                </input>
+                            </div>
+
+                            <div className="form-group col-md-4 col-lg-4">
+                                <small> <label class="form-label">ShipDate </label></small>
+                                <input class="form-control form-control-sm" type="text" placeholder=".ShipDate">
+                                </input>
+                            </div>
+
+                            <div className="form-group col-md-4 col-lg-4">
+                                <small> <label class="form-label">SubTotal </label></small>
+                                <input class="form-control form-control-sm" type="text" placeholder=".SubTotal">
+                                </input>
+                            </div>
+
+                        </div>
+
+                        {/*-------- end form row---------*/}
+
+                        {/*-------- form row---------*/}
+                        <div className="form-row col-md-12 col-lg-6">
+
+                            <div className="form-group col-md-4 col-lg-4">
+                                <small>  <label class="form-label">TaxAmt </label></small>
+                                <input class="form-control form-control-sm" type="text" placeholder=".TaxAmt">
+                                </input>
+                            </div>
+
+                            <div className="form-group col-md-4 col-lg-4">
+                                <small><label class="form-label">Freight </label></small>
+                                <input class="form-control form-control-sm" type="text" placeholder=".Freight">
+                                </input>
+                            </div>
+
+                            <div className="form-group col-md-4 col-lg-4">
+                                <small> <label class="form-label">TotalDue </label></small>
+                                <input class="form-control form-control-sm" type="text" placeholder=".TotalDue">
+                                </input>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-pink">Action</button>
+                    </div>
+
+                    {/*-------- end form row---------*/}
+
                 </div>
             </div>
 

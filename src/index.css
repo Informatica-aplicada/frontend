@@ -40,10 +40,12 @@ tr:not(hover){
 
 /*Body*/
 body {
-  font-family: 'Lexend Deca', sans-serif; 
+  font-family: 'Roboto', sans-serif;
   background-image: url("https://marketplace.canva.com/EAEK4dC2olw/1/0/1600w/canva-arco%C3%ADris-gradiente-rosa-y-naranja-fondo-virtual-para-zoom-c3PYha1JI9M.jpg");
   background-attachment: fixed;
   background-size: cover;
+
+
 }
 
 /*Navbar*/
@@ -108,5 +110,16 @@ tbody tr:not(hover){
 .div{
   margin-top: 0.5em;
 }
+
+ul {
+  list-style-type: none;
+}
+
+.btn-pink{
+  background-color: rgb(231, 205, 228);
+  
+}
+
+
 
 /*Others*/

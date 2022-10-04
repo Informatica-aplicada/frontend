@@ -10,7 +10,6 @@ function Details() {
     
     <React.Fragment>
       
-      <div className="body-details col-md-12 bg-light mx-auto">
       <Navbar/>
         <div className="">
           <div className="">
@@ -19,7 +18,6 @@ function Details() {
           <TableDetails/>
           </div>
         </div>
-      </div>
     </React.Fragment>
   );
 }
