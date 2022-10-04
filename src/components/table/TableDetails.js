@@ -2,24 +2,28 @@ import React from "react";
 
 function TableDetails() {
 
+    const submitHandle = () =>{
+        alert("hola");
+    }
+
     return (
         <React.Fragment>
-            <div class="card mt-3 col-md-8 mx-auto">
-                <div class="card-body">
+            <div className="card mt-3 col-md-8 mx-auto">
+                <div className="card-body">
                     <div className="d-flex">
-                    <h5 class="card-title title-table">Facturacion</h5>
-                        <form class="form-group form-inline ml-3">
-                            <div class="input-group">
-                                <input type="text" class=" search-input form-control" placeholder="Buscar..."></input>
-                                <div class="input-group-append">
-                                    <button class="btn btn-pink" type="button">
-                                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <h5 className="card-title title-table">Facturacion</h5>
+                        <form className="form-group form-inline ml-3">
+                            <div className="input-group">
+                                <input type="text" className=" search-input form-control" placeholder="Buscar..."></input>
+                                <div className="input-group-append">
+                                    <button onClick={submitHandle} className="btn btn-pink" type="button">
+                                    <i className="fa-solid fa-magnifying-glass"></i>
                                     </button>
                                 </div>
                             </div>
                         </form>
                     </div>
-                    <table class="table table-sm">
+                    <table className="table table-sm">
                         <thead>
                             <tr>
                                 

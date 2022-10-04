@@ -1,22 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 function TableHeader() {
+
+  const [id, setid] = useState();
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setid(value);
+
+  };
+
+  const handleSubmit = () =>{
+
+    const options = {
+      method: 'GET',
+      url: `https://purchase-microservices.azurewebsites.net/purchases/${id}`
+    };
+    
+    axios.request(options).then(function (response) {
+      console.log(response.data);
+    }).catch(function (error) {
+      console.error(error);
+    });
+}
+
   return (
     <React.Fragment>
-      <div class="card card mt-3 col-sm-10 col-md-8 col-lg-8 mx-auto">
-        <div class="card-body ">
+      <div className="card card mt-3 col-sm-10 col-md-8 col-lg-8 mx-auto">
+        <div className="card-body ">
           <div className="d-flex">
-            <h5 class="card-title title-table">Detalles</h5>
-            <form class="form-group form-inline ml-3">
-              <div class="input-group">
+            <h5 className="card-title title-table">Detalles</h5>
+            <form onSubmit={handleSubmit} className="form-group form-inline ml-3">
+              <div className="input-group">
                 <input
                   type="text"
-                  class=" search-input form-control"
+                  name="id"
+                  className=" search-input form-control"
                   placeholder="Buscar..."
+                  onChange={handleChange}
                 ></input>
-                <div class="input-group-append">
-                  <button class="btn btn-pink" type="button">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                <div className="input-group-append">
+                  <button className="btn btn-pink" type="submit">
+                    <i className="fa-solid fa-magnifying-glass"></i>
                   </button>
                 </div>
               </div>
@@ -29,9 +56,9 @@ function TableHeader() {
               <div className="form-group col-md-4 col-lg-4">
                 <small>
                   {" "}
-                  <label class="form-label">OrderID </label>
+                  <label className="form-label">OrderID </label>
                   <input
-                    class="form-control form-control-sm"
+                    className="form-control form-control-sm"
                     type="text"
                     placeholder=".PurchaseOrderID"
                   ></input>
@@ -41,10 +68,10 @@ function TableHeader() {
               <div className="form-group  col-md-4 col-lg-4">
                 <small>
                   {" "}
-                  <label class="form-label">Rev.Number </label>{" "}
+                  <label className="form-label">Rev.Number </label>{" "}
                 </small>
                 <input
-                  class="form-control form-control-sm"
+                  className="form-control form-control-sm"
                   type="text"
                   placeholder=".RevisionNumber"
                 ></input>
@@ -53,19 +80,19 @@ function TableHeader() {
               <div className="form-group  col-md-4 col-lg-4">
                 <small>
                   {" "}
-                  <label class="form-label">Status </label>
+                  <label className="form-label">Status </label>
                 </small>
-                <select
-                  class="form-control form-control-sm"
+                <select  defaultValue={"0"}
+                  className="form-control form-control-sm"
                   id="exampleFormControlSelect1"
                 >
-                  <option defaultValue={0} disabled>
+                  <option disabled selected value="0">
                     Choose Status..
                   </option>
-                  <option value={1}>Pending</option>
-                  <option value={2}>Approve</option>
-                  <option value={3}>Rejected</option>
-                  <option value={4}>Complete</option>
+                  <option value="1">Pending</option>
+                  <option value="2">Approve</option>
+                  <option value="3">Rejected</option>
+                  <option value="4">Complete</option>
                 </select>
               </div>
             </div>
@@ -77,10 +104,10 @@ function TableHeader() {
               <div className="form-group  col-md-4 col-lg-4">
                 <small>
                   {" "}
-                  <label class="form-label">EmployeeID </label>
+                  <label className="form-label">EmployeeID </label>
                 </small>
                 <input
-                  class="form-control form-control-sm"
+                  className="form-control form-control-sm"
                   type="text"
                   placeholder=".EmployeeID"
                 ></input>
@@ -89,10 +116,10 @@ function TableHeader() {
               <div className="form-group col-md-4 col-lg-4">
                 <small>
                   {" "}
-                  <label class="form-label">VendorID </label>
+                  <label className="form-label">VendorID </label>
                 </small>
                 <input
-                  class="form-control form-control-sm"
+                  className="form-control form-control-sm"
                   type="text"
                   placeholder=".VendorID"
                 ></input>
@@ -101,10 +128,10 @@ function TableHeader() {
               <div className="form-group col-md-4 col-lg-4">
                 <small>
                   {" "}
-                  <label class="form-label">ShipMethodID </label>
+                  <label className="form-label">ShipMethodID </label>
                 </small>
                 <input
-                  class="form-control form-control-sm"
+                  className="form-control form-control-sm"
                   type="text"
                   placeholder=".ShipMethodID"
                 ></input>
@@ -120,10 +147,10 @@ function TableHeader() {
               <div className="form-group col-md-4 col-lg-4">
                 <small>
                   {" "}
-                  <label class="form-label">OrderDate </label>
+                  <label className="form-label">OrderDate </label>
                 </small>
                 <input
-                  class="form-control form-control-sm"
+                  className="form-control form-control-sm"
                   type="text"
                   placeholder=".OrderDate"
                 ></input>
@@ -132,10 +159,10 @@ function TableHeader() {
               <div className="form-group col-md-4 col-lg-4">
                 <small>
                   {" "}
-                  <label class="form-label">ShipDate </label>
+                  <label className="form-label">ShipDate </label>
                 </small>
                 <input
-                  class="form-control form-control-sm"
+                  className="form-control form-control-sm"
                   type="text"
                   placeholder=".ShipDate"
                 ></input>
@@ -144,10 +171,10 @@ function TableHeader() {
               <div className="form-group col-md-4 col-lg-4">
                 <small>
                   {" "}
-                  <label class="form-label">SubTotal </label>
+                  <label className="form-label">SubTotal </label>
                 </small>
                 <input
-                  class="form-control form-control-sm"
+                  className="form-control form-control-sm"
                   type="text"
                   placeholder=".SubTotal"
                 ></input>
@@ -161,10 +188,10 @@ function TableHeader() {
               <div className="form-group col-md-4 col-lg-4">
                 <small>
                   {" "}
-                  <label class="form-label">TaxAmt </label>
+                  <label className="form-label">TaxAmt </label>
                 </small>
                 <input
-                  class="form-control form-control-sm"
+                  className="form-control form-control-sm"
                   type="text"
                   placeholder=".TaxAmt"
                 ></input>
@@ -172,10 +199,10 @@ function TableHeader() {
 
               <div className="form-group col-md-4 col-lg-4">
                 <small>
-                  <label class="form-label">Freight </label>
+                  <label className="form-label">Freight </label>
                 </small>
                 <input
-                  class="form-control form-control-sm"
+                  className="form-control form-control-sm"
                   type="text"
                   placeholder=".Freight"
                 ></input>
@@ -184,16 +211,16 @@ function TableHeader() {
               <div className="form-group col-md-4 col-lg-4">
                 <small>
                   {" "}
-                  <label class="form-label">TotalDue </label>
+                  <label className="form-label">TotalDue </label>
                 </small>
                 <input
-                  class="form-control form-control-sm"
+                  className="form-control form-control-sm"
                   type="text"
                   placeholder=".TotalDue"
                 ></input>
               </div>
             </div>
-            <button type="button" class="btn btn-pink">
+            <button type="button" className="btn btn-pink">
               Action
             </button>
           </div>
