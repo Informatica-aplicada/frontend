@@ -7,17 +7,11 @@ import '../public/css/table.css';
 function Details() {
 
   return (
-    
+
     <React.Fragment>
-      
-      <Navbar/>
-        <div className="">
-          <div className="">
-         
-          <TableHeader/>
-          <TableDetails/>
-          </div>
-        </div>
+      <Navbar />
+      <TableHeader />
+      <TableDetails />
     </React.Fragment>
   );
 }
