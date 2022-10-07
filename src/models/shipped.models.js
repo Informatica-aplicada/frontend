@@ -1,10 +1,10 @@
 export function ShippedModel(){
 
     const Shipped = {
-        ShipMethodID: '',
-        Name:'',
-        ShipBase: '',
-        ShipRate: ''
+        shipMethodId: '',
+        name:'',
+        shipBase: '',
+        shipRate: ''
     }
     return Shipped;
 }

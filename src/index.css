@@ -61,15 +61,13 @@ body {
 }
 
 tbody tr:hover{
-  background-color: rgba(14, 59, 107, 0.629);
-  transform: scale(1.02);
+  background-color:rgb(186, 144, 172);
   transition: transform 1s ease;
   font-weight: 600;
   color: aliceblue;
 }
 
 tbody tr:not(hover){
-  transform: scale(1);
   transition: transform 1s ease;
 }
 
@@ -127,6 +125,10 @@ ul {
 
 p{
   margin: 0;
+}
+
+.footer{
+  background-color: blue;
 }
 
 

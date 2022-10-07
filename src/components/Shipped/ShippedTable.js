@@ -2,21 +2,32 @@ import NavBar from "../page/navbar";
 import React, { useState, useEffect } from "react";
 import { ShippedModel } from "../../models/shipped.models";
 import { useParams } from "react-router-dom";
+import { getShipMethodList } from "../../services/ShipMethodServices";
+
+import { Link } from "react-router-dom";
 
 export function ShippedTable() {
 
-  const [shipped, setShipped] = useState(ShippedModel());
+  const [shipped, setShipped] = useState([ShippedModel()]);
 
-    // useEffect(() => {
+  useEffect(() => {
 
-    //     setShipped();
+            getShipMethodList().then((data) => {
+              setShipped(data);
+              console.log("shipped");
+              console.log(shipped);
+            });
 
-    // });
+  }, []);
+
 
   return (
-    <>
+    <React.Fragment>
       <div className="container-fluid col-md-8 mt-5">
-        <div className="card">
+        <Link to="/shipped">
+          <button className="btn btn-primary">Agregar</button>
+        </Link>
+        <div className="card mt-1">
           <div className="card-body">
             <table className="table table-sm">
               <thead>
@@ -28,19 +39,19 @@ export function ShippedTable() {
                 </tr>
               </thead>
               <tbody>
-                {/* {shipped.map((data) => (
+                {shipped.map((data) => (
                   <tr>
-                    <p>{data.ShipMethodID}</p>
-                    <td>{data.Name}</td>
-                    <td>{data.ShipBase}</td>
-                    <td>{data.ShipRate}</td>
+                    <td>{data.shipMethodId}</td>
+                    <td>{data.name}</td>
+                    <td>{data.shipBase}</td>
+                    <td>{data.shipRate}</td>
                   </tr>
-                ))} */}
+                ))}
               </tbody>
             </table>
           </div>
         </div>
       </div>
-    </>
+    </React.Fragment>
   );
 }

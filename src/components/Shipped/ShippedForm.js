@@ -2,6 +2,7 @@ import NavBar from "../page/navbar";
 import React, { useState, useEffect } from "react";
 import { ShippedModel } from "../../models/shipped.models";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function ShippedForm() {
   const { id } = useParams();
@@ -13,7 +14,6 @@ export function ShippedForm() {
     //     setShipped(result[0]);
     //   });
     // }
-    alert(id);
   });
 
   const handleSubmit = (event) => {
@@ -83,9 +83,9 @@ export function ShippedForm() {
               </div>
 
               <div className="form-group">
-                <button type="Button" className="btn btn-primary">
-                  Regresar
-                </button>
+                <Link to="/shippedList">
+                  <button className="btn btn-primary">Regresar</button>
+                </Link>
                 <button type="submit" className=" ml-1 btn btn-primary">
                   Guardar
                 </button>
