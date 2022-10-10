@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { ShippedModel } from "../../models/shipped.models";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { save } from "../../services/ShipMethodServices";
 
 export function ShippedForm() {
   const { id } = useParams();
@@ -19,6 +20,7 @@ export function ShippedForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(JSON.stringify(shipped));
+    save(shipped);
   };
 
   const handleChage = (event) => {
@@ -41,10 +43,10 @@ export function ShippedForm() {
                   hidden
                   type="text"
                   className="form-control"
-                  name="ShipMethodID"
+                  name="shipMethodId"
                   onChange={handleChage}
                   placeholder=""
-                  value={shipped.ShipMethodID || ""}
+                  value={shipped.shipMethodId || ""}
                 ></input>
               </div>
 
@@ -53,10 +55,10 @@ export function ShippedForm() {
                 <input
                   type="text"
                   className="form-control"
-                  name="Name"
+                  name="name"
                   onChange={handleChage}
                   placeholder=""
-                  value={shipped.Name || ""}
+                  value={shipped.name || ""}
                 ></input>
               </div>
               <div className="form-group">
@@ -65,9 +67,9 @@ export function ShippedForm() {
                   type="text"
                   className="form-control"
                   onChange={handleChage}
-                  name="ShipBase"
+                  name="shipBase"
                   placeholder=""
-                  value={shipped.ShipBase || ""}
+                  value={shipped.shipBase || ""}
                 ></input>
               </div>
               <div className="form-group">
@@ -76,9 +78,9 @@ export function ShippedForm() {
                   type="text"
                   className="form-control"
                   onChange={handleChage}
-                  name="ShipRate"
+                  name="shipRate"
                   placeholder=""
-                  value={shipped.ShipRate || ""}
+                  value={shipped.shipRate || ""}
                 ></input>
               </div>
 
@@ -91,6 +93,7 @@ export function ShippedForm() {
                 </button>
               </div>
             </form>
+            {JSON.stringify(shipped)}
           </div>
         </div>
       </div>

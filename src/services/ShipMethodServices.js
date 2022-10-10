@@ -31,7 +31,11 @@ export async function getShipMethodList() {
   }
 
   export async function save(shipped) {
-   
-    return axios.post(url,shipped).then((res) => { 
-    });
+    console.log(shipped);
+     return axios
+       .post(url, shipped)
+       .then((response) => console.log(response))
+       .catch((error) => {
+         console.error("There was an error!", error);
+       });
   }
