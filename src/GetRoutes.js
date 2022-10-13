@@ -23,7 +23,7 @@ function GetRoutes(){
           <Route path="shipped/:id" element={<ShippedForm />} />
           <Route path="shippedList" element={<ShippedTable />} />
           <Route path="shippedDetails/:id" element={<ShippedForm />} />
-          <Route path="master" element={   <MasterPage component={<div>hola</div>}/>   } />
+          {/* <Route path="master" element={   <MasterPage component={<div>hola</div>}/>   } /> */}
         </Routes>
       </Router>
     );
