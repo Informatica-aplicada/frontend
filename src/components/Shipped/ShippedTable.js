@@ -57,23 +57,35 @@ export function ShippedTable() {
                     <td>{data.shipBase}</td>
                     <td>{data.shipRate}</td>
                     <td>
-                      <button className="button" title="edit" onClick={() => edit(data.shipMethodId)}>
-                        <i class="fa-solid fa-pen-to-square"></i></button>
-                      &nbsp;
-                      <button className="button" title="delete" onClick={() => deletedShipMethod(data.shipMethodId)}>
-                        <i class="fa-solid fa-trash"></i></button>
-                      &nbsp;
-                      <Link to = {`/shippedDetails/${data.shipMethodId}`}> 
-                      <button className="button" title="show">
-                      <i class="fa-solid fa-eye"></i></button></Link>
-                  </td>
+                      <button
+                        className="button btn-ligtpurple"
+                        title="edit"
+                        onClick={() => edit(data.shipMethodId)}
+                      >
+                        <i class="fa-solid fa-pen-to-square"></i>
+                      </button>
+
+                      <button
+                        className="button btn-red"
+                        title="delete"
+                        onClick={() => deletedShipMethod(data.shipMethodId)}
+                      >
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+
+                      <Link to={`/shippedDetails/${data.shipMethodId}`}>
+                        <button className="button btn-blue" title="show">
+                          <i class="fa-solid fa-eye"></i>
+                        </button>
+                      </Link>
+                    </td>
                   </tr>
                 ))}
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
-    </React.Fragment >
+    </React.Fragment>
   );
 }

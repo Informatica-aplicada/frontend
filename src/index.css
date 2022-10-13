@@ -61,10 +61,9 @@ body {
 }
 
 tbody tr:hover{
-  background-color:rgb(186, 144, 172);
+  background-color:rgb(209, 209, 209);
   transition: transform 1s ease;
   font-weight: 600;
-  color: aliceblue;
 }
 
 tbody tr:not(hover){
@@ -101,9 +100,26 @@ tbody tr:not(hover){
   border-radius: 4px;
   border: none;
   color: white;
-  padding: 10px 20px;
-  margin-top: 1em;
+  padding: 3px 6px;
+  margin: 2px;
 }
+
+.btn-red {
+  background-color: rgb(197, 66, 84);
+
+}
+
+.btn-blue {
+  background-color: rgb(47, 125, 199);
+
+}
+
+.btn-ligtpurple {
+  background-color: rgb(183, 188, 225)
+
+}
+
+
 
 .div{
   margin-top: 0.5em;
