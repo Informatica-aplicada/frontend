@@ -1,10 +1,8 @@
 import NavBar from "../page/navbar";
 import React, { useState, useEffect } from "react";
 import { ShippedModel } from "../../models/shipped.models";
-import { useNavigate, useParams, Redirect } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { deleted, getShipMethodList } from "../../services/ShipMethodServices";
-
-import { Link } from "react-router-dom";
 
 export function ShippedTable() {
 
