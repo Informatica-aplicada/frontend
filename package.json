@@ -8,13 +8,13 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
-    "package.json": "^2.0.1",
+    "package.json": "^0.0.0",
     "react": "^18.2.0",
     "react-document-title": "^2.0.3",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.36.1",
     "react-router-dom": "^6.4.1",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^2.1.3",
     "sweetalert2": "^11.4.35",
     "web-vitals": "^2.1.4"
   },
@@ -25,6 +25,10 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
+  },
+  "rules": {
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
   },
   "eslintConfig": {
     "extends": [

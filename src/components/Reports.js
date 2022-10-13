@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { getReport1 } from "../services/SalesServices";
 import axios from "axios";
 import Navbar from "./page/navbar";
 import CheckBox from "./checkbox/Checkbox";
@@ -7,61 +6,32 @@ import CheckBox2 from "./checkbox/Checkbox2";
 import { Table01 } from "./table/Table01";
 import { Table02 } from "./table/Table02";
 import "../index.css";
+import { getReport1, getReport2 } from "../services/SalesServices";
 
 function App() {
-  let years = [];
+  var years = [];
   let json = "";
-  let tr = [];
   const [reports, setReports] = useState([]);
   const [selectOption, setSelected] = useState();
 
   const eventoSelect = (event) => {
     const value = event.target.value;
-    const checked = event.target.checked;
     setSelected(value);
     console.log(selectOption);
   };
 
   const boton = () => {
-    json = JSON.stringify(years);
+    console.log("---------------------- array ------------------------");
+    console.log(years);
 
     if (selectOption === "1") {
-      //Create function
-      const options = {
-        method: "POST",
-        withCredentials: false,
-        url: "https://microservices-gateway.azurewebsites.net/api/home/report1",
-        data: years,
-      };
-
-      return axios
-        .request(options)
-        .then((response) => {
-          setReports(response.data);
-          console.log(reports);
-          return response.data;
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
+      getReport1(years).then((data) => {
+        setReports(data);
+      });
     } else if (selectOption === "2") {
-      const options = {
-        method: "POST",
-        withCredentials: false,
-        url: "https://microservices-gateway.azurewebsites.net/api/home/report2",
-        data: years,
-      };
-
-      return axios
-        .request(options)
-        .then((response) => {
-          setReports(response.data);
-          console.log(reports);
-          return response.data;
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
+      getReport2(years).then((data) => {
+        setReports(data);
+      });
     } else {
       console.log("Call services report 3");
     }
@@ -88,7 +58,7 @@ function App() {
                     id="inputState"
                     className="form-control"
                   >
-                    <option selected disabled defaultValue>
+                    <option selected disabled value="0">
                       Choose...
                     </option>
                     <option value="1">Register 1</option>
@@ -96,11 +66,13 @@ function App() {
                     <option value="3">Register 3</option>
                   </select>
                 </div>
-                {selectOption === "2" ? (
-                  <CheckBox2 boton={boton} years={years} />
-                ) : (
-                  <CheckBox boton={boton} years={years} />
-                )}
+                <div>
+                  {selectOption === "2" ? (
+                    <CheckBox2 boton={boton} years={years} />
+                  ) : (
+                    <CheckBox boton={boton} years={years} />
+                  )}
+                </div>
               </div>
               <div className="card-footer">Footer</div>
               {json}
@@ -113,16 +85,14 @@ function App() {
                 <h5 className="card-title">Sales Registers</h5>
               </div>
               {selectOption === "3" ? (
-                <Table02 tr={tr} reports={reports} />
+                <Table02 reports={reports} />
               ) : (
-                <Table01 tr={tr} reports={reports} />
+                <Table01 reports={reports} />
               )}
             </div>
           </div>
         </div>
       </div>
-
-
     </React.Fragment>
   );
 }

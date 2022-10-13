@@ -1,7 +1,7 @@
 import NavBar from "../page/navbar";
 import React, { useState, useEffect } from "react";
 import { ShippedModel } from "../../models/shipped.models";
-import { useParams } from "react-router-dom";
+
 import { getShipMethodList } from "../../services/ShipMethodServices";
 
 import { Link } from "react-router-dom";

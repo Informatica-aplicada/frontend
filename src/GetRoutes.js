@@ -7,7 +7,7 @@ import App from './components/Reports';
 import Details from './components/Details';
 import { ShippedForm } from './components/Shipped/ShippedForm';
 import { ShippedTable } from './components/Shipped/ShippedTable';
-import { MasterPage } from './components/page/MasterPage';
+
 
 function GetRoutes(){
 
@@ -22,8 +22,6 @@ function GetRoutes(){
           <Route path="shipped" element={<ShippedForm />} />
           <Route path="shipped/:id" element={<ShippedForm />} />
           <Route path="shippedList" element={<ShippedTable />} />
-
-          <Route path="master" element={   <MasterPage component={<div>hola</div>}/>   } />
         </Routes>
       </Router>
     );

@@ -1,6 +1,8 @@
 import React from "react";
 
-export function Table02({tr, reports}){
+export function Table02({reports }) {
+  
+     let tr = [];
 
         tr.push(
           reports.map((data) => (

@@ -1,12 +1,11 @@
 import { useForm } from "react-hook-form";
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; 
-import Swal from "sweetalert2";
+import React, { useState } from "react";
+//import { useNavigate } from "react-router-dom"; 
 
 import { AuthUser } from "../services/Auth";
 
 function Login() {
-  let navigate = useNavigate();
+  //let navigate = useNavigate();
 
   const [getData, setDat] = useState("");
 
@@ -33,7 +32,6 @@ function Login() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
   } = useForm();
 
   return (

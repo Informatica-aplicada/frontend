@@ -12,7 +12,6 @@ function TableHeader() {
   const [details, setDetails] = useState([DetailsModel()])
 
   const handleChange = (event) => {
-    const name = event.target.name;
     const value = event.target.value;
     setid(value);
   };
