@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Details from './../Details';
+import React from "react";
 
 function TableDetails(detailsPurchase) {
 
