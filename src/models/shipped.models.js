@@ -1,7 +1,7 @@
 export function ShippedModel(){
 
     const Shipped = {
-        shipMethodId: '',
+        shipMethodId : '',
         name:'',
         shipBase: '',
         shipRate: ''

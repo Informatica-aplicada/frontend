@@ -12,27 +12,27 @@ export async function getShipMethodList() {
 
     return axios.get(url+`/`+id).then((res) => {
       
-      return res.data;
+      return res.data.response;
     });
   }
 
   export async function deleted(id) {
-    return axios.delete(url+`/`+id).then((res) => {
-      window.location = "/";
-      return res.data;
+    return await axios.delete(url+`/`+id).then((res) => {
+      return res.status;
     });
   }
 
 
   export async function update(shipped) {
 
-    return axios.put(url,shipped).then((res) => {  
+    return await axios.put(url,shipped).then((res) => {  
+      return res.status;
     });
   }
 
   export async function save(shipped) {
     console.log(shipped);
-     return axios
+     return await axios
        .post(url, shipped)
        .then((response) => console.log(response))
        .catch((error) => {
