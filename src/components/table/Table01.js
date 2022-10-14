@@ -1,6 +1,8 @@
 import React from "react";
 
-export function Table01({tr, reports}){
+export function Table01({ reports }) {
+  
+   let tr = [];
 
       tr.push(
         reports.map((data) => (
@@ -52,7 +54,7 @@ export function Table01({tr, reports}){
           <tbody>{tr}</tbody>
           <tfoot>
             <tr>
-              <th>#Paginacion</th>
+              <th>#Page</th>
             </tr>
           </tfoot>
         </table>

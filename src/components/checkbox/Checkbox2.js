@@ -20,9 +20,9 @@ export default function CheckBox2({ boton, years }) {
     <React.Fragment>
       <div className="mt-3">
         <p>
-          <small>Este registro permite seleccion unica</small>
+          <small>This registry allows unique selection</small>
         </p>
-        <h5 className="card-title">Años</h5>
+        <h5 className="card-title">Years</h5>
         <div className="form-check">
           <input
             className="form-check-input"
@@ -85,7 +85,7 @@ export default function CheckBox2({ boton, years }) {
             className="btn btn-primary btn-block"
             type="submit"
           >
-            Aceptar
+            Accept
           </button>
         </div>
       </div>
