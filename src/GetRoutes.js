@@ -7,7 +7,7 @@ import App from './components/Reports';
 import Details from './components/Details';
 import { ShippedForm } from './components/Shipped/ShippedForm';
 import { ShippedTable } from './components/Shipped/ShippedTable';
-import { MasterPage } from './components/page/MasterPage';
+
 
 function GetRoutes(){
 

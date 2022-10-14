@@ -4,7 +4,7 @@ function NavBar() {
   return (
     <React.Fragment>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href={"http://google.com"}>
           Navbar
         </a>
         <button
@@ -21,22 +21,22 @@ function NavBar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item active">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href={"http://google.com"}>
                 Home <span className="sr-only">(current)</span>
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href={"http://google.com"}>
                 Features
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href={"http://google.com"}>
                 Pricing
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link disabled" href="#">
+              <a className="nav-link disabled" href={'http://google.com'}>
                 Disabled
               </a>
             </li>
