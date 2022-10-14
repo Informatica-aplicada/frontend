@@ -44,16 +44,15 @@ export function ShippedForm() {
   function saveShipMethod() {
     if (id != null) {
       update(shipped);
-      window.location = "/shippedList";
-    } else if(id === null){
+    } else {
       shipped.shipMethodId = 0;
       save(shipped);
-      window.location = "/shippedList";
     }
+    window.location = "/shippedList";
   }
 
   return (
-    <>
+    <React.Fragment>
       <NavBar />
       <div className="container-fluid">
         <div className="mt-5 card col-md-4 mx-auto">
@@ -120,6 +119,6 @@ export function ShippedForm() {
           </div>
         </div>
       </div>
-    </>
+    </React.Fragment>
   );
 }

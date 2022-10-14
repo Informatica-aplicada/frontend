@@ -14,17 +14,12 @@ export function ShippedTable() {
       setShipped(data);
     });
 
-  }, []);
+  }, [shipped]);
 
   const navigate = useNavigate();
 
   function deletedShipMethod(id) {
-    let response = null;
-    deleted(id).then((res) => {
-      if (res === 200) {
-        window.location = "/shippedList";
-      }
-    });
+    deleted(id);
   }
 
   function edit(id) {
