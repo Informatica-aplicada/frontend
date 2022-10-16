@@ -4,12 +4,16 @@ import { ShippedModel } from "../../models/shipped.models";
 import { useParams, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { getForId, save, update } from "../../services/ShipMethodServices";
+import { useNavigate } from "react-router-dom";
 
 export function ShippedForm() {
   const { id } = useParams();
   const [shipped, setShipped] = useState(ShippedModel());
   const [visible, setVisible] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+
   useEffect(() => {
 
     if (location.pathname === "/shippedDetails/" + id) {
@@ -48,7 +52,8 @@ export function ShippedForm() {
       shipped.shipMethodId = 0;
       save(shipped);
     }
-    window.location = "/shippedList";
+    //window.location = "/shippedList";
+    navigate("/shippedList");
   }
 
   return (

@@ -38,6 +38,8 @@ function App() {
     //End promise
   };
 
+  console.log("esta bateando el profe...");
+
   return (
     <React.Fragment>
       <div className="container-fluid">
