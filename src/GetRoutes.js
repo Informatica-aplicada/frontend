@@ -7,6 +7,8 @@ import App from './components/Reports';
 import Details from './components/Details';
 import { ShippedForm } from './components/Shipped/ShippedForm';
 import { ShippedTable } from './components/Shipped/ShippedTable';
+import {PersonTable} from './components/Person/PersonTable'
+import {PersonList} from './components/Person/PersonList'
 
 
 function GetRoutes(){
@@ -23,6 +25,11 @@ function GetRoutes(){
           <Route path="shipped/:id" element={<ShippedForm />} />
           <Route path="shippedList" element={<ShippedTable />} />
           <Route path="shippedDetails/:id" element={<ShippedForm />} />
+          <Route path="addPerson" element={<PersonTable />} />
+          <Route path="person" element={<PersonList />} />
+          <Route path="updatePerson/:id" element={<PersonTable />} />
+          <Route path="showPerson/:id" element={<PersonTable />} />
+
           {/* <Route path="master" element={   <MasterPage component={<div>hola</div>}/>   } /> */}
         </Routes>
       </Router>
