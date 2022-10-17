@@ -1,9 +1,7 @@
 import NavBar from "../page/navbar";
 import React, { useState, useEffect } from "react";
-import { ShippedModel } from "../../models/shipped.models";
 import { useParams, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { getForId, save, update } from "../../services/ShipMethodServices";
 import { useNavigate } from "react-router-dom";
 import { getPersonId, addPerson, updatePerson } from "../../services/PersonServices";
 import { PersonModel } from "../../models/person.models";
@@ -49,7 +47,6 @@ export function PersonTable() {
     if (id != null) {
      updatePerson(person);
     } else {
-     // shipped.shipMethodId = 0;
      person.businessEntityID=0;
      addPerson(person);
     }
