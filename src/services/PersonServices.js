@@ -22,6 +22,29 @@ export  function getPerson() {
   
   }
 
+  
+export  function getPersonEmails(id) {
+  const s =[id, 0]
+  const options = {
+    method: "POST",
+    withCredentials: false,
+    url: "https://localhost:8099/api/email",
+    data: [id],
+  };
+
+   return axios
+    .request(options)
+    .then((response) => {
+
+      const res = response.data;
+      return res;
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+
+}
+
   export  function getPersonId( id) {
     const s =[id, 0]
     const options = {
@@ -32,6 +55,27 @@ export  function getPerson() {
     };
   
      return axios
+      .request(options)
+      .then((response) => {
+        const res = response.data;
+        return res;
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  
+  }
+
+  export async function getTop100List( ) {
+    const s =[ 0]
+    const options = {
+      method: "GET",
+      withCredentials: false,
+      url: "https://localhost:8099/api/top100",
+      data: s,
+    };
+  
+     return await axios
       .request(options)
       .then((response) => {
         const res = response.data;
