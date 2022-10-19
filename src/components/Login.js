@@ -43,7 +43,8 @@ function Login() {
             <div className="container">
             <img
               className="image"
-              src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
+                  src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
+                  alt={"icon"}
             />
             </div>
             

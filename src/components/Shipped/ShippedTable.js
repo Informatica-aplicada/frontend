@@ -1,19 +1,15 @@
-import NavBar from "../page/navbar";
 import React, { useState, useEffect } from "react";
 import { ShippedModel } from "../../models/shipped.models";
 import { useNavigate, Link } from "react-router-dom";
 import { deleted, getShipMethodList } from "../../services/ShipMethodServices";
 
 export function ShippedTable() {
-
   const [shipped, setShipped] = useState([ShippedModel()]);
 
   useEffect(() => {
-
     getShipMethodList().then((data) => {
       setShipped(data);
     });
-
   }, [shipped]);
 
   const navigate = useNavigate();

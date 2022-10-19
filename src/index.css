@@ -114,6 +114,10 @@ tbody tr:not(hover){
 
 }
 
+.btn{
+  z-index: 99;
+}
+
 .btn-ligtpurple {
   background-color: rgb(183, 188, 225)
 
@@ -145,6 +149,28 @@ p{
 
 .footer{
   background-color: blue;
+}
+
+.bttn{
+    background-color: rgb(129, 142, 190);
+      /* Green */
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      
+}
+
+.bttn:hover{
+    background-color: rgb(194, 27, 69);
+}
+
+.border-rigth{
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 
