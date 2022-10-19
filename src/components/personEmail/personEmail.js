@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import validator from "validator";
 import { PersonEmailModel } from "../../models/personEmail.models";
-import confirmAlert from "./sweetalert/Alerts";
+import { EmailPerson } from "../../models/EmailPerson.model"
 import {
   getListPerson,
   getEmailById,
@@ -21,6 +21,7 @@ export function PersonEmail() {
   const [personList, setPersonList] = useState([PersonEmailModel()]);
   const [userId, setUserId] = useState("");
   const [change, setChange] = useState(false);
+  const [formFields, setFormFields] = useState([EmailPerson()]);
   const types = ["success", "info", "warning", "error"];
 
   function toastNotify(message, type) {
@@ -30,13 +31,6 @@ export function PersonEmail() {
       position: toast.POSITION.BOTTOM_CENTER
     });
   }
-
-  let object = {
-    emailAddress: "",
-    emailAddressID: ""
-  };
-
-  const [formFields, setFormFields] = useState([object]);
 
   useEffect(() => {
     getListPerson().then((data) => {
@@ -118,7 +112,7 @@ export function PersonEmail() {
       toastNotify("Solo se puede agregar un registro a la vez", 1);
     } else {
       setCount(count + 1);
-      setFormFields([...formFields, object]);
+      setFormFields([...formFields, EmailPerson()]);
       setText("");
     }
   };
