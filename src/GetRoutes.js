@@ -1,5 +1,5 @@
 import React from 'react';
-import {HashRouter as Router, Routes, Route} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 import Home from './components/Home';
 import Login from './components/Login';
@@ -9,6 +9,7 @@ import { ShippedForm } from './components/Shipped/ShippedForm';
 import { ShippedTable } from './components/Shipped/ShippedTable';
 import {PersonTable} from './components/Person/PersonTable'
 import {PersonList} from './components/Person/PersonList'
+import {PersonEmail} from './components/Person/PersonEmail'
 
 
 function GetRoutes(){
@@ -16,7 +17,7 @@ function GetRoutes(){
     return (
       <Router>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<PersonEmail />} />
           <Route path="home" element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="reports" element={<App />} />
@@ -29,6 +30,7 @@ function GetRoutes(){
           <Route path="person" element={<PersonList />} />
           <Route path="updatePerson/:id" element={<PersonTable />} />
           <Route path="showPerson/:id" element={<PersonTable />} />
+          <Route path="homework" element={<PersonEmail />} />
 
           {/* <Route path="master" element={   <MasterPage component={<div>hola</div>}/>   } /> */}
         </Routes>

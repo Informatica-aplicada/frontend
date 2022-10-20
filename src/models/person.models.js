@@ -1,6 +1,6 @@
 export function PersonModel() {
     const person = {
-        businessEntityID: '',
+        businessEntityID: 0,
         personType: '',
         nameStyle: '',
         title: '',
