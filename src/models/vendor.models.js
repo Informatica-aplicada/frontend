@@ -1,11 +1,11 @@
 export function VendorModel(){
 
     const Vendor = {
-        businessEntityId : '',
-        accountNumber : '',
-        name:'',
-        creditRating: '',
-        purchasingWebServiceURL: ''
+        BusinessEntityId : '',
+        AccountNumber : '',
+        Name:'',
+        CreditRating: '',
+        PurchasingWebServiceURL: ''
     }
     return Vendor;
 }

@@ -13,13 +13,14 @@ export function VendorForm() {
   const location = useLocation();
   const navigate = useNavigate();
 
-
   useEffect(() => {
 
-    if (location.pathname === "/vendorDetails/" + id) {
-      
+    if (location.pathname === "/vendorDetails/" + id) {  
+
       setVisible(true);
       document.getElementById("save").hidden = true;
+      /*document.getElementById("lId").hidden = true;
+      document.getElementById("tfId").hidden = true;*/
     }
     console.log(location.pathname);
 
@@ -50,10 +51,8 @@ export function VendorForm() {
     if (id != null) {
       update(vendor);
     } else {
-        vendor.businessEntityId = 0; /* --- */
       save(vendor);
     }
-
     navigate("/vendorList");
   }
 
@@ -66,15 +65,17 @@ export function VendorForm() {
             <h5 className="card-title">Vendor</h5>
             <form onSubmit={handleSubmit} id="form">
               <fieldset disabled={visible}>
+
                 <div className="form-group">
+                <label htmlFor="" id="lId">Business Entity Id</label>
                   <input
-                    hidden
                     type="text"
                     className="form-control"
                     name="businessEntityId"
                     onChange={handleChage}
                     placeholder=""
                     value={vendor.businessEntityId || ''}
+                    id = "tfId"
                   ></input>
                 </div>
 

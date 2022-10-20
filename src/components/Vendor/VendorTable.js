@@ -9,19 +9,20 @@ export function VendorTable() {
   const [vendor, setVendor] = useState([VendorModel()]);
 
   useEffect(() => {
-
     getVendorList().then((data) => {
-      setVendor(data);
+    setVendor(data);
     });
 
   }, [vendor]);
 
   const navigate = useNavigate();
 
+  //Cascade
   function deletedVendor(id) {
     deleted(id);
   }
 
+  //
   function edit(id) {
     navigate("/vendor/" + id);
   }
@@ -46,8 +47,8 @@ export function VendorTable() {
                 </tr>
               </thead>
               <tbody>
-                {vendor.map((data) => (
-                  <tr>
+                {vendor.map((data, index) => (
+                  <tr  key={index}>
                     <td>{data.businessEntityId}</td>
                     <td>{data.accountNumber}</td>
                     <td>{data.name}</td>
@@ -59,7 +60,7 @@ export function VendorTable() {
                         title="edit"
                         onClick={() => edit(data.businessEntityId)}
                       >
-                        <i class="fa-solid fa-pen-to-square"></i>
+                        <i className="fa-solid fa-pen-to-square"></i>
                       </button>
 
                       <button
@@ -67,12 +68,12 @@ export function VendorTable() {
                         title="delete"
                         onClick={() => deletedVendor(data.businessEntityId)}
                       >
-                        <i class="fa-solid fa-trash"></i>
+                        <i className="fa-solid fa-trash"></i>
                       </button>
 
                       <Link to={`/VendorDetails/${data.businessEntityId}`}>
                         <button className="button btn-blue" title="show">
-                          <i class="fa-solid fa-eye"></i>
+                          <i className="fa-solid fa-eye"></i>
                         </button>
                       </Link>
                     </td>

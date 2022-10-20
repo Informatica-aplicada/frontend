@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = "https://purchase-microservices.azurewebsites.net/vendor";
+const url = "https://localhost:7029/vendor"; /* -- */
 
 export async function getVendorList() {
     return await axios.get(url).then((res) => {
