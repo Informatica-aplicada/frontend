@@ -10,6 +10,8 @@ import { ShippedTable } from './components/Shipped/ShippedTable';
 import {PersonTable} from './components/Person/PersonTable'
 import {PersonList} from './components/Person/PersonList'
 import Emails from './components/Emails';
+import { VendorForm } from './components/Vendor/VendorForm';
+import { VendorTable } from './components/Vendor/VendorTable';
 
 
 function GetRoutes(){
@@ -31,6 +33,10 @@ function GetRoutes(){
           <Route path="updatePerson/:id" element={<PersonTable />} />
           <Route path="showPerson/:id" element={<PersonTable />} />
           <Route path="emails" element={<Emails />} />
+          <Route path="vendor" element={<VendorForm />} />
+          <Route path="vendor/:id" element={<VendorForm />} />
+          <Route path="vendorList" element={<VendorTable />} />
+          <Route path="vendorDetails/:id" element={<VendorForm />} />
           {/* <Route path="master" element={   <MasterPage component={<div>hola</div>}/>   } /> */}
         </Routes>
       </Router>
