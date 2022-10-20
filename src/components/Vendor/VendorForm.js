@@ -103,7 +103,7 @@ export function VendorForm() {
                 <div className="form-group">
                   <label htmlFor="">Credit Rating</label>
                   <input
-                    type="checkBox"
+                    type="text"
                     className="form-control"
                     onChange={handleChage}
                     name="creditRating"
