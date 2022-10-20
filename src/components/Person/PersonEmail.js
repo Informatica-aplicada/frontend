@@ -18,7 +18,7 @@ export function PersonEmail() {
     const [emails, setEmails] = useState([EmailModel()]);
     const [crudEmail, setCrudEmail] = useState(EmailModel());
     const [beUpdated, SetBeUpdated] = useState(false);
-    //const [isDisabled, setIsDisabled] = useState(true);
+    const [formVisible, setFormVisible] = useState(true);
     const [emailError, setEmailError] = useState(false);
     var cont = 0;
 
@@ -76,6 +76,7 @@ export function PersonEmail() {
             setEmails(P);
         });
         setIdPerson(value)
+        setFormVisible(false)
         //setIdPerson({ ...idPerson, [value]: value });
 
     };
@@ -168,21 +169,25 @@ console.log("ealeeee== "+crudEmail.EmailAddressUpdate)
                 <div className="card mt-1">
 
                     <Select options={person()} onChange={handleChange} />
+                    <div className="card-body">
                     <button className='btn btn-primary' onClick={() => hide()}>
                         Agregar
                     </button>
                     <form hidden={visible} className='mt-3 show' onSubmit={handleSubmit}>
                         <div className="input-group mb-3">
+                        <div className="form-group">
                             <input type="text" name="EmailAddress" className="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" onChange={handleChangeOfMail}></input>
                             <span>{emailError}</span>
-                        </div>
-                        <button className='btn btn-primary btn-block'>
+                            </div>
+                        <button className='btn btn-primary'>
                             Guardar
                         </button>
+                        
+                        </div>
                     </form>
-
+</div>
                     <div className="card-body">
-                        <form id="form">
+                        <form id="form" hidden={formVisible}>
                             {emails.map((field, index) =>
 
                                 <div className="form-group">
