@@ -16,7 +16,6 @@ export async function getListPerson() {
 }
 
 export async function getEmailById(id) {
-  console.log(id);
   return await axios.get(url + `/` + id).then((res) => {
     const response = res.data;
     return response;
