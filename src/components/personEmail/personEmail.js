@@ -165,7 +165,7 @@ export function PersonEmail() {
             <Select onChange={handleChangeSelect} options={options()} />
             <div className="d-flex justify-content-center" hidden>
               <img
-                alt="kirbywgun"
+                alt="adeventureWorksCycle"
                 hidden={!visible}
                 style={{ width: "600px" }}
                 src={process.env.PUBLIC_URL + "/aw.webp"}
