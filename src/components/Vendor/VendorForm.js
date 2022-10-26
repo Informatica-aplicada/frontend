@@ -19,7 +19,7 @@ export function VendorForm() {
 
       setVisible(true);
       document.getElementById("save").hidden = true;
-      /*document.getElementById("lId").hidden = true;
+       /*document.getElementById("lId").hidden = true;
       document.getElementById("tfId").hidden = true;*/
     }
     console.log(location.pathname);
@@ -78,7 +78,6 @@ export function VendorForm() {
                     id = "tfId"
                   ></input>
                 </div>
-
                 <div className="form-group">
                   <label htmlFor="">Account Number</label>
                   <input
@@ -123,12 +122,12 @@ export function VendorForm() {
                     value={vendor.purchasingWebServiceURL || ""}
                   ></input>
                 </div>
-
                 <div className="form-group">
                   <button type="submit" className=" ml-1 btn btn-primary" id="save" onClick={() => saveVendor()}>
                     Save
                   </button>
                 </div>
+
               </fieldset>
             </form>
             <Link to="/vendorList">

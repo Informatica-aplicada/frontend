@@ -17,7 +17,7 @@ export function VendorTable() {
 
   const navigate = useNavigate();
 
-  //Cascade
+  //Cascade --delete--
   function deletedVendor(id) {
     deleted(id);
   }
