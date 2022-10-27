@@ -9,6 +9,7 @@ function ViewEmail() {
   const [visible, setVisible] = useState(true);
   const [persons, setPersons] = useState([PersonEmail()]);
   const [emails, setEmails] = useState([EmailModel()]);
+  const [id, setId] = useState("");
   // const [disable, setDisable] = useState(false);
   useEffect(() => {
 
@@ -26,6 +27,7 @@ function ViewEmail() {
   };
 
   const onChangePerson = (event) => {
+    setId(event.value);
     getEmails(event.value).then((result) => {
       setEmails(result);
       setVisible(false);
@@ -49,12 +51,20 @@ function ViewEmail() {
   }
 
 
-  const deleted = (index)=>{
-    //alert(index);
-    //setDisable(false);
+  const deleted = (id, index) => {
+    
+    if (id === "") {
+      let dataForm = [...emails];
+      dataForm.splice(index, 1);
+      setEmails(dataForm);
+    } else { 
     [...emails][index].accion = 3;
     console.log([...emails][index]);
     setEmails([...emails]);
+    }
+    //alert(index);
+    //setDisable(false);
+
   }
 
   // const addNew = (index)=>{
@@ -71,9 +81,11 @@ function ViewEmail() {
     console.log([...emails]);
   };
 
-  const saveChange = () =>{
+  const saveChange = () => {
+    
+    console.log(emails)
 
-    save(emails).then(result=>{
+    save(id, emails).then((result) => {
       alert("Guardado");
     });
   }
@@ -84,7 +96,7 @@ function ViewEmail() {
         <div className=" mt-5 col-md-8 mx-auto">
           <div className="card-body">
             <div className="mt-1">
-              <div className="col-md-6 mx-auto ">
+              <div className="col-md-10 mx-auto ">
                 <Select onChange={onChangePerson} className="mt-3 mb-3" options={options()} />
                 <hr></hr>
                 <div hidden={visible}>
@@ -102,21 +114,34 @@ function ViewEmail() {
                               name="emailAddress"
                               onChange={(event) => onChangeEvent(event, index)}
                               value={email.emailAddress || ""}
-                              disabled = {email.businessEntityID !== '' || email.accion === '2'?true:false}
+                              // disabled = {email.businessEntityID !== '' || email.accion === '2'?true:false}
                             ></input>
                             {(() => {
-                              if (email.businessEntityID !== '') {
+                              if (email.businessEntityID !== "") {
                                 return (
-                                  <div className="input-group-btn" >
-                                    <button className='btn' title='Editar' onClick={(event) =>edit(index)}><i className="fa-solid fa-pen-to-square"></i></button>
+                                  <div className="input-group-btn">
+                                    <button
+                                      className="btn"
+                                      title="Editar"
+                                      onClick={(event) => edit(index)}
+                                    >
+                                      <i className="fa-solid fa-pen-to-square"></i>
+                                    </button>
                                   </div>
-                                )
+                                );
                               }
                             })()}
-                            <div className="input-group-btn" >
-                              <button className='btn' title='Eliminar'  onClick={(event) =>deleted(index)}><i className="fa-solid fa-trash"></i></button>
+                            <div className="input-group-btn">
+                              <button
+                                className="btn"
+                                title="Eliminar"
+                                onClick={() =>
+                                  deleted(email.businessEntityID, index)
+                                }
+                              >
+                                <i className="fa-solid fa-trash"></i>
+                              </button>
                             </div>
-
                           </div>
                         </div>
                       );
