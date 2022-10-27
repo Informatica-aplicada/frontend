@@ -1,5 +1,4 @@
 import axios from "axios";
-import {Navigate, useParams} from "react-router-dom";
 
 export  function getPerson() {
 
@@ -24,7 +23,7 @@ export  function getPerson() {
 
   
 export  function getPersonEmails(id) {
-  const s =[id, 0]
+ // const s =[id, 0]
   const options = {
     method: "POST",
     withCredentials: false,

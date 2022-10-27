@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import Navbar from "./page/navbar";
 import CheckBox from "./checkbox/Checkbox";
 import CheckBox2 from "./checkbox/Checkbox2";

@@ -19,7 +19,6 @@ export function ShippedForm() {
     if (location.pathname === "/shippedDetails/" + id) {
       
       setVisible(true);
-      document.getElementById("save").hidden = true;
     }
     console.log(location.pathname);
 
@@ -112,7 +111,7 @@ export function ShippedForm() {
                 </div>
 
                 <div className="form-group">
-                  <button type="submit" className=" ml-1 btn btn-primary" id="save" onClick={() => saveShipMethod()}>
+                  <button type="submit" className=" ml-1 btn btn-primary" hidden = {visible} onClick={() => saveShipMethod()}>
                     Guardar
                   </button>
                 </div>

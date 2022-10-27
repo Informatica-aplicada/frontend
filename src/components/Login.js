@@ -35,16 +35,16 @@ function Login() {
   } = useForm();
 
   return (
-    <div class="background-gradient">
+    <div className="background-gradient">
     <div className="row col-md-12">
       <div className="col-md-7 col-lg-4 col-sm-8 mx-auto">
         <div className="card card-login">
           <div className="card-body  p-5">
             <div className="container">
-            <img
+            {/* <img
               className="image"
               src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
-            />
+            /> */}
             </div>
             
             <form onSubmit={handleSubmit(onSubmit)}>

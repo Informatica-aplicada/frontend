@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getPerson, deletePerson } from "../../services/PersonServices";
 import { PersonModel } from "../../models/person.models";
 
@@ -15,7 +15,7 @@ export function PersonList() {
 
     }, [person]);
 
-    const navigate = useNavigate();
+  //  const navigate = useNavigate();
     function deleteP(id) {
         deletePerson(id);
     }

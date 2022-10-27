@@ -28,6 +28,7 @@ export function ShippedTable() {
 
   return (
     <React.Fragment>
+      <NavBar />
       <div className="container-fluid col-md-8 mt-5">
         <Link to="/shipped">
           <button className="btn btn-primary">Agregar</button>
