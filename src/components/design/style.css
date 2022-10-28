@@ -1,0 +1,150 @@
+body{
+    background-image: url(form.jpg);
+}
+
+main {
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    margin-left: 40%;
+    margin-right: 40%;
+
+}
+
+.form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form input {
+    width: 90%;
+    height: 30px;
+    margin: 0.5rem;
+  }
+
+.form-personal{
+    justify-content: center;
+
+}
+
+.content {
+    background-color: rgb(224, 238, 233);
+    padding: 20px;
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+.fa-plus {
+    margin-left: 10%;
+    background-color: #2684ef;
+    /* Green */
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+    margin-top: 10px;
+
+}
+
+.fa-plus:hover{
+    background-color: #014172e7; /* Blue */
+    color: rgb(255, 255, 255);
+}
+
+.fa-edit {
+    margin-left: 3%;
+    background-color: #c5cee8;
+    /* Green */
+    border: none;
+    color: rgb(15, 12, 12);
+    padding: 3px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 12px;
+
+}
+.fa-edit:hover{
+    background-color: #309eca85; /* Blue */
+    color: rgb(0, 0, 0);
+}
+
+.fa-trash-o {
+    margin-left: 2%;
+    background-color: #ffa8a8;
+    /* Green */
+    border: none;
+    color: rgb(8, 7, 7);
+    padding: 3px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 12px;
+}
+
+.fa-trash-o:hover{
+    background-color: #fd4d4de7; /* Blue */
+    color: rgb(0, 0, 0);
+}
+.fa-close {
+    margin-left: 2%;
+    background-color: #2684ef;
+    /* Green */
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 3px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+.fa-close:hover{
+    background-color: #014172e7; /* Blue */
+    color: rgb(251, 244, 244);
+}
+
+.fa-save {
+    margin-left: 2%;
+    background-color: #2684ef;
+    /* Green */
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 3px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 12px;
+    margin-top: 10px;
+    
+}
+
+.fa-save:hover{
+    background-color: #014172e7; /* Blue */
+    color: rgb(252, 252, 252);
+}
+
+
+
+.div-button{
+    margin-left: 23%;
+}
+
+.input-text{
+    margin-left: 10%;
+}
