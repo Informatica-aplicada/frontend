@@ -9,7 +9,8 @@ import { ShippedForm } from './components/Shipped/ShippedForm';
 import { ShippedTable } from './components/Shipped/ShippedTable';
 import {PersonTable} from './components/Person/PersonTable'
 import {PersonList} from './components/Person/PersonList'
-import Emails from './components/Emails';
+
+import Person from './components/Person';
 
 
 function GetRoutes(){
@@ -30,7 +31,7 @@ function GetRoutes(){
           <Route path="person" element={<PersonList />} />
           <Route path="updatePerson/:id" element={<PersonTable />} />
           <Route path="showPerson/:id" element={<PersonTable />} />
-          <Route path="emails" element={<Emails />} />
+          <Route path="emails" element={<Person />} />
           {/* <Route path="master" element={   <MasterPage component={<div>hola</div>}/>   } /> */}
         </Routes>
       </Router>
