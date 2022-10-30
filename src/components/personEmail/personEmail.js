@@ -171,7 +171,7 @@ export function PersonEmail() {
 
             <div className="d-flex justify-content-center" hidden>
               <img
-                alt="kirbywgun"
+                alt="adeventureWorksCycle"
                 hidden={!visible}
                 style={{ width: "600px" }}
                 src={process.env.PUBLIC_URL + "/descarga.png"}
