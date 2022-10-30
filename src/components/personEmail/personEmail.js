@@ -32,8 +32,9 @@ export function PersonEmail() {
   }
 
   useEffect(() => {
-    getListPerson().then((data) => {
-      setPersonList(data);
+    console.log(formFields.length);
+    getListPerson().then((result) => {
+      setPersonList(result);
     });
   }, [formFields]);
 
@@ -64,7 +65,7 @@ export function PersonEmail() {
     }
   };
 
-  const onSubmitAction = (e) => {
+  const SubmitAction = (e) => {
     e.preventDefault();
     let bool = false;
 
@@ -84,6 +85,7 @@ export function PersonEmail() {
         });
       } else {
         toastNotify("ERROR!! Verifique los datos", 3);
+        setEmailAlert("Formato de correo incorrecto");
       }
       setChange(false);
     } else {
@@ -106,13 +108,11 @@ export function PersonEmail() {
       denyButtonText: `Cancelar`,
     }).then((result) => {
       const newList = formFields.map((item, index) => {
-        console.log(index, id);
         if (index === id) {
           const updatedItem = {
             ...item,
             active: !item.active,
           };
-
           return updatedItem;
         }
         return item;
@@ -129,7 +129,6 @@ export function PersonEmail() {
       setEmailAlert("Correcto");
       setValid(true);
     } else {
-      setEmailAlert("Formato de correo incorrecto");
       setValid(false);
     }
     data[index][name] = value;
@@ -138,10 +137,14 @@ export function PersonEmail() {
   };
 
   const handleChangeSelect = async (event) => {
+    setFormFields([]);
     const value = event.value;
     setUserId(value);
     await getEmailById(value).then((data) => {
-      setFormFields(data);
+      setTimeout(() => {
+        setFormFields(data);
+      }, 2000);
+
       setVisible(false);
     });
   };
@@ -149,8 +152,7 @@ export function PersonEmail() {
   const options = () => {
     return personList.map((data) => ({
       value: data.businessEntityID,
-      label:
-        data.businessEntityID + " - " + data.firstName + " " + data.lastName,
+      label: data.firstName + " " + data.lastName,
     }));
   };
 
@@ -159,73 +161,91 @@ export function PersonEmail() {
       <div className="container-fluid mt-5 mb-5 col-md-6">
         <div className="card">
           <div className="card-body">
+            <span role="img">un 100 o pla pla pla 🔫</span>
+            <hr></hr>
             <label htmlFor="inputState">
               <h6>Buscar correos de la persona</h6>
             </label>
+
             <Select onChange={handleChangeSelect} options={options()} />
+
             <div className="d-flex justify-content-center" hidden>
               <img
                 alt="kirbywgun"
                 hidden={!visible}
                 style={{ width: "600px" }}
-                src={process.env.PUBLIC_URL + "/aw.webp"}
+                src={process.env.PUBLIC_URL + "/descarga.png"}
               />
             </div>
             <div hidden={visible}>
               <button className="btn btn-pink mt-3" onClick={AddFieldMethod}>
                 Add More..
               </button>
-              <form className="mt-3 mb-3" ononSubmitAction={onSubmitAction}>
-                {formFields.map((form, index) => {
-                  return (
-                    <div key={index} className="input-group mt-2 mb-2">
-                      <input
-                        disabled={
-                          form.emailAddressID != "" ? !form.active : form.active
-                        }
-                        type="text"
-                        name="emailAddress"
-                        className=" search-input form-control"
-                        placeholder={"Nueva direccion de correo electronico..."}
-                        onChange={(event) => handleFormChange(event, index)}
-                        value={form.emailAddress || ""}
-                      ></input>
+              {formFields.length < 1 ? (
+                <div className="d-flex justify-content-center mt-2" hidden>
+                  <img
+                    alt="kirbywgun"
+                    style={{ width: "300px" }}
+                    src={process.env.PUBLIC_URL + "/rolling-kirby.gif"}
+                  />
+                </div>
+              ) : (
+                <form className="mt-3 mb-3" onSubmit={SubmitAction}>
+                  {formFields.map((form, index) => {
+                    return (
+                      <div key={index} className="input-group mt-2 mb-2">
+                        <input
+                          disabled={
+                            form.emailAddressID !== ""
+                              ? !form.active
+                              : form.active
+                          }
+                          type="text"
+                          name="emailAddress"
+                          className=" search-input form-control"
+                          placeholder={
+                            "Nueva direccion de correo electronico..."
+                          }
+                          onChange={(event) => handleFormChange(event, index)}
+                          value={form.emailAddress || ""}
+                        ></input>
 
-                      <div className="input-group-append">
-                        {form.emailAddressID != "" ? (
+                        <div className="input-group-append">
+                          {form.emailAddressID !== "" ? (
+                            <button
+                              onClick={() => EditFieldAction(index)}
+                              className="bttn btn-color"
+                              type="button"
+                            >
+                              <i className="fa-solid fa-pen"></i>
+                            </button>
+                          ) : (
+                            []
+                          )}
+
                           <button
-                            onClick={() => EditFieldAction(index)}
-                            className="bttn btn-color"
+                            onClick={() =>
+                              DeleteAction(form.emailAddressID, index)
+                            }
+                            className="bttn btn-color border-rigth"
                             type="button"
                           >
-                            <i className="fa-solid fa-pen"></i>
+                            <i className="fa-solid fa-trash"></i>
                           </button>
-                        ) : (
-                          []
-                        )}
-
-                        <button
-                          onClick={() =>
-                            DeleteAction(form.emailAddressID, index)
-                          }
-                          className="bttn btn-color border-rigth"
-                          type="button"
-                        >
-                          <i className="fa-solid fa-trash"></i>
-                        </button>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
-                <div>
-                  {" "}
-                  <small>{emailAlert}</small>
-                </div>
+                    );
+                  })}
+                  <div>
+                    {" "}
+                    <small>{emailAlert}</small>
+                  </div>
 
-                <button className="btn btn-pink" onClick={onSubmitAction}>
-                  Submit
-                </button>
-              </form>
+                  <button className="btn btn-pink" type="submit">
+                    Submit
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>
