@@ -69,7 +69,7 @@ export function PersonEmail() {
     e.preventDefault();
     let bool = false;
 
-    formFields.map((data) => {
+    formFields.forEach((data) => {
       if (data.emailAddress === "") {
         bool = true;
       }
