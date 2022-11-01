@@ -1,8 +1,10 @@
 export function Email() {
     const Emails = {
-        EmailAddressID : '',
-        EmailAddress : '',
-    }
+      businessEntityID: 0,
+      emailAddressID: 0,
+      emailAddress: '',
+      optionAction: 0,
+    };
     return Emails;
 
 }

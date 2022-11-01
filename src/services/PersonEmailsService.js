@@ -19,12 +19,12 @@ export async function getPersonEmails() {
       });  
   }
 
-  export async function getEmails() {
+  export async function getEmails(id) {
 
     const options = {
       method: "GET",
       withCredentials: false,
-      url: "https://localhost:7000/emails",
+      url: "https://localhost:7000/emails/"+id,
     };
   
      return axios
