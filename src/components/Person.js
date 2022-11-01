@@ -1,54 +1,56 @@
 import React, { useEffect, useState } from "react";
-import Select from 'react-select';
+import Select from "react-select";
 import { Email } from "../models/emails.models";
 import { PersonEmails } from "../models/personEmails.models";
-import {getEmails, getPersonEmails} from "../services/PersonEmailsService";
+import { getEmails, getPersonEmails } from "../services/PersonEmailsService";
 
-function Person(){
+function Person() {
+  const [getPerson, setPersonEmail] = useState([PersonEmails()]);
+  const [dataEmails, setDataEmails] = useState([Email()]);
 
-    const [getPerson, setPersonEmail] = useState([PersonEmails()]);
-    const [dataEmails, setDataEmails] = useState([Email()])
+  useEffect(() => {
+    getPersonEmails().then((person) => {
+      setPersonEmail(person);
+      console.log(getPerson);
+    });
+  }, []);
 
-    useEffect(() => {
+  const options = () => {
+    return getPerson.map((info) => ({
+      value: info.businessEntityID,
+      label: info.name,
+    }));
+  };
 
-        getPersonEmails().then((person) => {
-            setPersonEmail(person);
-            console.log(getPerson);
-        })
+  const selectEvent = (eventocambio) => {
+    let id = eventocambio.value;
 
-    }, []);
+    getEmails(id).then((response) => {
+      setDataEmails(response);
+      console.log(response);
+    });
+  };
 
-    const options = () => {
-        return getPerson.map((info) => ({
-            value: info.businessEntityID,
-            label: info.name,
-        }));
-    };
-
-    const selectEvent = (eventocambio) => { 
-       
-        let id = eventocambio.value;
-
-        alert(id);
-
-        // getEmails(id).then((response) => { 
-        //     setDataEmails(response);
-        // });
-    }
-
-    
-
-
-    
-    return (
-      <>
-        <div className="container">
-          <div className=" col-md-6 mt-5">
-            <Select onChange={selectEvent} options={options()} />
+  return (
+    <>
+      <div className="container">
+        <div className=" col-md-6 mt-5">
+          <Select onChange={selectEvent} options={options()} />
+          <div className="row">
+            {dataEmails.map((data) => {
+                return (
+                    <>
+                        {/* aqui va el input */}
+                        {/* estudie */}
+                    <p>{data.emailAddress}</p>
+                    <hr></hr>
+                  </>
+                );
+            })}
           </div>
         </div>
-      </>
-    );
-
-
-} export default Person;
+      </div>
+    </>
+  );
+}
+export default Person;

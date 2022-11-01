@@ -31,6 +31,7 @@ export async function getPersonEmails() {
       .request(options)
       .then((response) => {
         const res = response.data;
+        
         return res;
       })
       .catch(function (error) {
