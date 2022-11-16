@@ -39,25 +39,36 @@ export async function getPersonEmails() {
       });  
   }
 
-  export  function addEmails() {
-    const options = {
-      method: "POST",
-      withCredentials: false,
-      url: "https://localhost:7000/emails",
-    };
-  
-     return axios
-      .request(options)
-      .then((response) => {
-        const res = response.data;
-        return res;
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
+  export  function addEmails(data) {
+
+    for(let emailData of data){
+      if (emailData.optionAction === 1 || emailData.optionAction === 2){
+
+        console.log(emailData);
+
+        const options = {
+          method: "POST",
+          withCredentials: false,
+          url: "https://localhost:7000/emails",
+          data: emailData
+        };
+      
+         return axios
+          .request(options)
+          .then((response) => {
+            const res = response.data;
+            return res;
+          })
+          .catch(function (error) {
+            console.error(error);
+          });
+
+      }
+    }
+
   }
 
-  export  function updateEmail() {
+  /*export  function updateEmail() {
         const options = {
           method: "PUT",
           withCredentials: false,
@@ -92,4 +103,4 @@ export async function getPersonEmails() {
           .catch(function (error) {
             console.error(error);
           });
-      }
+      }*/
