@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import { Email } from "../models/emails.models";
 import { PersonEmails } from "../models/personEmails.models";
-import { getEmails, getPersonEmails, addEmails } from "../services/PersonEmailsService";
+import { getEmails, getPersonEmails, actionEmails } from "../services/PersonEmailsService";
 
 
 function Person() {
@@ -16,7 +16,7 @@ function Person() {
       setPersonEmail(person);
       console.log(getPerson);
     });
-  }, []);
+  }, [dataEmails]);
 
   const options = () => {
     return getPerson.map((info) => ({
@@ -55,14 +55,43 @@ function Person() {
   const saveInfo = (event) => {
     event.preventDefault();
     setDataEmails(dataEmails);
-    addEmails(dataEmails);
+    actionEmails(dataEmails).then(() => {
+
+      getEmails(getId).then((response) => {
+        setDataEmails(response);
+      });
+
+    });
+
+    //Validar input (el dataEmails)
+    //Habilitar/Deshabilitar
+    //
   }
 
-  const deleteInfo = (index) => {
-    [...dataEmails][index].optionAction = 2; 
-    [...dataEmails][index].businessEntityID = getId;
-    setDataEmails([...dataEmails]);
-    addEmails(dataEmails);
+  const deleteInfo = (index, emailAddressID) => {
+
+    if(emailAddressID === 0){
+
+      let data = [...dataEmails];
+
+     data.splice(index, 1);
+     setDataEmails(data);
+
+    }else{
+
+      //sweet alert
+
+      [...dataEmails][index].optionAction = 2; 
+      [...dataEmails][index].businessEntityID = getId;
+      setDataEmails([...dataEmails]);
+      actionEmails(dataEmails).then(() => {
+
+        getEmails(getId).then((response) => {
+          setDataEmails(response);
+        });
+
+      });
+    }
   }
 
   return (
@@ -86,7 +115,7 @@ function Person() {
                         placeholder="example@domain.com"
                       ></input>
                       <div className = "input-group-append">
-                        <button className="btn btn-primary" onClick={() => deleteInfo(index)}>
+                        <button className="btn btn-primary" onClick={() => deleteInfo(index, data.emailAddressID)}>
                           <i class="fa-solid fa-trash"></i>
                         </button>
                       </div>

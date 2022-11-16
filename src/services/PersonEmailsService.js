@@ -39,7 +39,7 @@ export async function getPersonEmails() {
       });  
   }
 
-  export  function addEmails(data) {
+  export async function actionEmails(data) {
 
     for(let emailData of data){
       if (emailData.optionAction === 1 || emailData.optionAction === 2){
@@ -53,11 +53,11 @@ export async function getPersonEmails() {
           data: emailData
         };
       
-         return axios
+         await axios
           .request(options)
           .then((response) => {
             const res = response.data;
-            return res;
+            console.log(res);
           })
           .catch(function (error) {
             console.error(error);
