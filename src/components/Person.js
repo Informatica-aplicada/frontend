@@ -62,10 +62,8 @@ function Person() {
       });
 
     });
-
     //Validar input (el dataEmails)
     //Habilitar/Deshabilitar
-    //
   }
 
   const deleteInfo = (index, emailAddressID) => {
@@ -78,9 +76,7 @@ function Person() {
      setDataEmails(data);
 
     }else{
-
       //sweet alert
-
       [...dataEmails][index].optionAction = 2; 
       [...dataEmails][index].businessEntityID = getId;
       setDataEmails([...dataEmails]);
@@ -107,7 +103,7 @@ function Person() {
                   return (
                     <>
                     <div className="input-group mt-2" key={index}>
-                      <input className="form-control"
+                      <input className="form-control" 
                         type="text"
                         name="emailAddress"
                         value={data.emailAddress || ''}
